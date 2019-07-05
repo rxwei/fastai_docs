@@ -109,6 +109,8 @@ public extension FADense {
 
 @frozen
 public struct FANoBiasConv2D<Scalar: TensorFlowFloatingPoint>: FALayer {
+    public typealias Input = Tensor<Scalar>
+    public typealias Output = Tensor<Scalar>
     public var filter: Tensor<Scalar>
     public typealias Activation = @differentiable (Tensor<Scalar>) -> Tensor<Scalar>
     @noDerivative public let activation: Activation
@@ -230,6 +232,8 @@ public extension FAConv2D {
 
 @frozen
 public struct FAAvgPool2D<Scalar: TensorFlowFloatingPoint>: FALayer {
+    public typealias Input = Tensor<Scalar>
+    public typealias Output = Tensor<Scalar>
     @noDerivative let poolSize: (Int, Int, Int, Int)
     @noDerivative let strides: (Int, Int, Int, Int)
     @noDerivative let padding: Padding
@@ -265,6 +269,8 @@ public struct FAAvgPool2D<Scalar: TensorFlowFloatingPoint>: FALayer {
 
 @frozen
 public struct FAGlobalAvgPool2D<Scalar: TensorFlowFloatingPoint>: FALayer {
+    public typealias Input = Tensor<Scalar>
+    public typealias Output = Tensor<Scalar>
     public init() {}
 
     @differentiable

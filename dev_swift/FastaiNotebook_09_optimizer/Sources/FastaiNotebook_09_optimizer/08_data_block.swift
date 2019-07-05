@@ -19,7 +19,7 @@ public func downloadImagenette(path: Path = dataPath, sz:String="-160") -> Path 
     try! path.mkdir(.p)
     if !file.exists {
         downloadFile(url, dest:(path/"\(fname).tgz").string)
-        _ = "/bin/tar".shell("-xzf", (path/"\(fname).tgz").string, "-C", path.string)
+        _ = "/usr/bin/tar".shell("-xzf", (path/"\(fname).tgz").string, "-C", path.string)
     }
     return file
 }
